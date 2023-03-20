@@ -1,12 +1,6 @@
-[![arduino-library-badge](https://www.ardu-badge.com/badge/GyverNTP.svg?)](https://www.ardu-badge.com/GyverNTP)
-[![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
-[![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square)](https://alexgyver.ru/support_alex/)
-[![Foo](https://img.shields.io/badge/README-ENGLISH-blueviolet.svg?style=flat-square)](https://github-com.translate.goog/GyverLibs/GyverNTP?_x_tr_sl=ru&_x_tr_tl=en)  
 
-[![Foo](https://img.shields.io/badge/ПОДПИСАТЬСЯ-НА%20ОБНОВЛЕНИЯ-brightgreen.svg?style=social&logo=telegram&color=blue)](https://t.me/GyverLibs)
-
-# GyverNTP
-Библиотека для получения точного времени с NTP сервера для esp8266/esp32
+# MOD_GyverNTP
+Форк библиотеки для получения точного времени с NTP сервера для esp8266/esp32
 - Работает на стандартной библиотеке WiFiUdp.h
 - Учёт времени ответа сервера и задержки соединения
 - Получение времени с точностью до нескольких миллисекунд
@@ -24,7 +18,6 @@ esp8266, esp32
 - [Использование](#usage)
 - [Пример](#example)
 - [Версии](#versions)
-- [Баги и обратная связь](#feedback)
 
 <a id="install"></a>
 ## Установка
@@ -80,6 +73,7 @@ uint8_t dayWeek();              // получить день недели
 
 String timeString();            // получить строку времени формата ЧЧ:ММ:СС
 String dateString();            // получить строку даты формата ДД.ММ.ГГГГ
+String getFullFormLastUpdate(); // получить строку последней успешной синхронизации в формате "ДД-ММ-ГГ ЧЧ:ММ:СС"
 
 bool synced();                  // получить статус текущего времени, true - синхронизировано
 bool busy();                    // вернёт true, если tick ожидает ответа сервера в асинхронном режиме
@@ -150,24 +144,10 @@ void loop() {
 
 <a id="versions"></a>
 ## Версии
-- v1.0
-- v1.1 - мелкие улучшения и gmt в минутах
-- v1.2 - оптимизация, улучшена стабильность, добавлен асинхронный режим
-- v1.2.1 - изменён стандартный период обновления
-- v1.3 - ускорена синхронизация при запуске в асинхронном режиме
-- v1.3.1 - заинклудил WiFi библиотеку в файл
-
-<a id="feedback"></a>
-## Баги и обратная связь
-При нахождении багов создавайте **Issue**, а лучше сразу пишите на почту [alex@alexgyver.ru](mailto:alex@alexgyver.ru)  
-Библиотека открыта для доработки и ваших **Pull Request**'ов!
+- v0.1 - Добавлена функция последней успешной синхронизации в формате "ДД-ММ-ГГ ЧЧ:ММ:СС".
 
 
-При сообщении о багах или некорректной работе библиотеки нужно обязательно указывать:
-- Версия библиотеки
-- Какой используется МК
-- Версия SDK (для ESP)
-- Версия Arduino IDE
-- Корректно ли работают ли встроенные примеры, в которых используются функции и конструкции, приводящие к багу в вашем коде
-- Какой код загружался, какая работа от него ожидалась и как он работает в реальности
-- В идеале приложить минимальный код, в котором наблюдается баг. Не полотно из тысячи строк, а минимальный код
+Автор Форка: Otto
+Дата создания: 20.03.2023
+
+ MIT License
